@@ -1,0 +1,10 @@
+# Node.js and Express specific files
+node_modules/
+package-lock.json
+
+# Logs and other files
+logs/
+*.log
+
+# Environment variables
+.env

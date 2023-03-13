@@ -3,28 +3,28 @@ import mongoose from "mongoose";
 const userScheema =new mongoose.Schema({
     userName: {
         type: String,
-        required: true,
         unique: true,
+        required: true
     },
     email:{
         type: String,
-        required: true,
         unique: true,
+        required: true
     },
     phoneNumber:{
         type: String,
-        required: true,
         unique: true,
+        required: true
+    },
+    password:{
+        type: String,
+        required: true,
+        min:8,
+        max:20
     },
     fullName:{
         type: String,
         required: true,
-        unique: true,
-    },
-    fullName:{
-        type: String,
-        required: true,
-        unique: true,
     },
     roll:{
         type:String,

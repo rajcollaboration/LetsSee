@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose  from 'mongoose';
 import env from 'dotenv';
 import cookieParser from 'cookie-parser';
+import authRouts from './routes/auth.js';
 
 const app = express();
 env.config();
@@ -18,8 +19,11 @@ const connect = ()=>{
     })
 }
 
-// error handling middleware
+// middleware
+app.use("/api/auth", authRouts);
 
+
+// error handling
 app.use((err,req,res,next)=>{
     const status = err.status || 500;
     const message = err.message || "Something Went Wrong";

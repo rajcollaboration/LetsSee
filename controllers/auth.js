@@ -21,15 +21,17 @@ export const register =async (req,res,next)=>{
 // start login api
 export const login = async (req,res,next)=>{
     try {
-        const user = await user.findOne({userName: req.body.userName});
-        if (!user) return next(createError(404,"user not found"));
-        const isCorrect = await bcrypt.compare(req.body.password,user.password);
+        console.log(req.body.password);
+        const userd = await user.findOne({userName: req.body.userName});
+        
+        if (!userd) return next(createError(404,"user not found"));
+        
+        const isCorrect = await bcrypt.compare(req.body.password , userd.password);
         if (!isCorrect) return next(createError(400,"Wrong user id or password"));
-
-        const token = Jwt.sign({ id: user._id }, "dgfjsdgfjsdgfjsdgf3232%%&");
-        const { password, ...others } = user._doc;
-        res.status(200).json(token,others)
-
+        
+        const token =  Jwt.sign({ id: userd._id }, "dgfjsdgfjsdgfjsdgf3232%%&");
+        const { password, ...others } = userd._doc;
+        res.status(200).json({token,others})
     } catch (error) {
         next(error);
     }

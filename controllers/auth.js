@@ -29,9 +29,9 @@ export const login = async (req,res,next)=>{
         const isCorrect = await bcrypt.compare(req.body.password , userd.password);
         if (!isCorrect) return next(createError(400,"Wrong user id or password"));
         
-        const token =  Jwt.sign({ id: userd._id }, "dgfjsdgfjsdgfjsdgf3232%%&");
+        const token =  Jwt.sign({ id: userd._id }, process.env.JWT);
         const { password, ...others } = userd._doc;
-        res.status(200).json({token,others})
+        res.status(200).json({token,others});
     } catch (error) {
         next(error);
     }

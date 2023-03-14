@@ -3,6 +3,7 @@ import mongoose  from 'mongoose';
 import env from 'dotenv';
 import cookieParser from 'cookie-parser';
 import authRouts from './routes/auth.js';
+import addProduct from './routes/addProduct.js';
 
 const app = express();
 env.config();
@@ -21,6 +22,7 @@ const connect = ()=>{
 
 // middleware
 app.use("/api/auth", authRouts);
+app.use("/api/addproduct",addProduct);
 
 
 // error handling

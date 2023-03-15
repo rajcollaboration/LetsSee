@@ -13,7 +13,13 @@ export const flipcart = async (req, res, next) => {
     for (const product in data) {
         if (data.hasOwnProperty.call(data, product)) {
             const element = data[product];
-            console.log(element);
+            if (element["WebDevNotes"] != undefined) {
+                const newProduct = new addproduct({name:element["WebDevNotes"],description: element[" Students Lecture Wise View - FJP1"]})
+            await newProduct.save();
+            console.log(element[" Students Lecture Wise View - FJP1"]);
+            }
+            
+            
         }
     }
     res.json(data);

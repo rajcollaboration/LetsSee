@@ -4,8 +4,10 @@ import env from 'dotenv';
 import cookieParser from 'cookie-parser';
 import authRouts from './routes/auth.js';
 import addProduct from './routes/addProduct.js';
-
+import bodyParser from 'body-parser';
 const app = express();
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}));
 env.config();
 app.use(cookieParser());
 app.use(express.json());

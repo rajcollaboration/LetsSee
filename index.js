@@ -4,6 +4,7 @@ import env from 'dotenv';
 import cookieParser from 'cookie-parser';
 import authRouts from './routes/auth.js';
 import addProduct from './routes/addProduct.js';
+import getProductData from './routes/getProductData.js';
 import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.json())
@@ -25,6 +26,7 @@ const connect = ()=>{
 // middleware
 app.use("/api/auth", authRouts);
 app.use("/api/addproduct",addProduct);
+app.use("/api/getData",getProductData);
 
 
 // error handling

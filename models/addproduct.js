@@ -2,16 +2,34 @@ import mongoose from "mongoose";
 
 
 const addproduct = new mongoose.Schema({
-    name:{
+    title:{
         type: String,
-        required: true,
-        unique: true,
-        dropDups: true
     },
-    description:{
+    brand:{
         type: String,
-        unique: true
+    },
+    modelName:{
+        type: String,
+    },
+    NetworkServiceProvider:{
+        type: String,
+    },
+    OS:{
+        type: String,
+    },
+    CellularTechnology:{
+        type: String,
+    },
+    price:{
+        type: String,
+    },
+    reviews:{
+        type: String,
     }
+    
 })
 
 export default mongoose.model('product',addproduct);
+
+
+

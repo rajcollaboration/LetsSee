@@ -17,9 +17,7 @@ export const flipcart = async (req, res, next) => {
                 const newProduct = new addproduct({name:element["WebDevNotes"],description: element[" Students Lecture Wise View - FJP1"]})
             await newProduct.save();
             console.log(element[" Students Lecture Wise View - FJP1"]);
-            }
-            
-            
+            } 
         }
     }
     res.json(data);
